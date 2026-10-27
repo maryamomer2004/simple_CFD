@@ -32,7 +32,7 @@
 > [!NOTE]
 > **Who is this for?** Students taking their very first steps in Computational Fluid Dynamics (CFD). You need basic calculus (derivatives, Taylor series), a little linear algebra and some Python. Everything else is built up on this page, one step at a time.
 >
-> **How to read it:** first we ask *what problem CFD solves*, then we walk through the **7 pillars** every CFD analysis is built on. One small problem, marked 🔥 **Running example**, follows us through all seven pillars so you can see each idea applied. Then you practise on [worked problems](#-course-problems), each with a problem sheet, a step-by-step solution and a plain-Python notebook.
+> **How to read it:** first we ask *what problem CFD solves*, then we walk through the **7 pillars** every CFD analysis is built on. One small problem, marked 🔥 **Running example**, follows us through all seven pillars so you can see each idea applied. Then you practise on [four worked problems](#-course-problems), each with a problem sheet, a step-by-step solution and a plain-Python notebook.
 
 ## 📖 Contents
 
@@ -431,7 +431,7 @@ Popular tools: **Matplotlib** (used in this course), **ParaView** and **VisIt** 
 
 ## 🧪 Course problems
 
-Worked problems take you from a 1D steady problem to 2D problems with convective boundaries. Each one walks through all 7 pillars, and each lives in its own folder with three files:
+Four worked problems take you from a 1D steady problem to a 2D problem with a convective boundary. Each one walks through all 7 pillars, and each lives in its own folder with three files:
 
 <p align="center">
   📄 <b>problem statement</b> (PDF) &nbsp;→&nbsp; 📘 <b>step-by-step solution</b> (PDF) &nbsp;→&nbsp; 💻 <b>Jupyter notebook</b> with the complete solver
@@ -444,6 +444,8 @@ Worked problems take you from a 1D steady problem to 2D problems with convective
 |:-:|---|:-:|:-:|---|---|
 | 1 | [Aluminium pin fin](problems/01_aluminium_fin) | 1D | steady | fin equation | ghost node for an insulated tip · Gauss–Seidel vs Thomas algorithm |
 | 2 | [Phosphorus diffusion in silicon](problems/02_phosphorus_diffusion) | 1D | unsteady | diffusion (parabolic) | explicit time marching · stability $`r \le 1/2`$ · semi-infinite domain |
+| 3 | [Plate with four interior nodes](problems/03_plate_four_nodes) | 2D | steady | Laplace (elliptic) | five-point stencil · Gaussian elimination vs Gauss–Seidel |
+| 4 | [Brick column cooled by air](problems/04_brick_column_convection) | 2D | steady | Laplace (elliptic) | energy-balance node equations · convective boundary · symmetry |
 
 <table>
   <tr>
@@ -456,6 +458,18 @@ Worked problems take you from a 1D steady problem to 2D problems with convective
       <a href="problems/02_phosphorus_diffusion"><img src="problems/02_phosphorus_diffusion/docs/figures/schematic.png" alt="Problem 2: phosphorus diffusion into a silicon wafer"></a>
       <p><b>2 · Phosphorus diffusion in silicon</b><br><sub>How deep do dopant atoms penetrate a wafer in one hour?</sub></p>
       <p><a href="problems/02_phosphorus_diffusion/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/02_phosphorus_diffusion/02_solution.pdf">📘 Solution</a> · <a href="problems/02_phosphorus_diffusion/03_fdm_solver.ipynb">💻 Notebook</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="problems/03_plate_four_nodes"><img src="problems/03_plate_four_nodes/docs/figures/schematic.png" alt="Problem 3: square plate with four interior nodes"></a>
+      <p><b>3 · Plate with four interior nodes</b><br><sub>Temperatures inside a plate whose four edges are held at different temperatures.</sub></p>
+      <p><a href="problems/03_plate_four_nodes/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/03_plate_four_nodes/02_solution.pdf">📘 Solution</a> · <a href="problems/03_plate_four_nodes/03_fdm_solver.ipynb">💻 Notebook</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="problems/04_brick_column_convection"><img src="problems/04_brick_column_convection/docs/figures/schematic.png" alt="Problem 4: fireclay brick column cooled by air on one side"></a>
+      <p><b>4 · Brick column cooled by air</b><br><sub>A furnace support column with three hot faces and one face cooled by an air stream.</sub></p>
+      <p><a href="problems/04_brick_column_convection/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/04_brick_column_convection/02_solution.pdf">📘 Solution</a> · <a href="problems/04_brick_column_convection/03_fdm_solver.ipynb">💻 Notebook</a></p>
     </td>
   </tr>
 </table>
@@ -475,7 +489,9 @@ simple_CFD/
 │   │   ├── 03_fdm_solver.ipynb  ← plain-Python solver, step by step
 │   │   ├── plots.py             ← drawing helpers for the notebook
 │   │   └── docs/                ← Markdown sources of the PDFs + figures
-│   └── 02_phosphorus_diffusion/ ← same layout in every problem folder
+│   ├── 02_phosphorus_diffusion/ ← same layout in every problem folder
+│   ├── 03_plate_four_nodes/
+│   └── 04_brick_column_convection/
 ├── tools/
 │   └── build_docs.py            ← runs the notebooks and rebuilds the PDFs
 └── assets/
