@@ -38,6 +38,10 @@
 
 The film depth grows like $`\sqrt{t}`$: a film twice as deep takes four times as long. Halving $`\Delta z`$ at a fixed $`r`$ divides the error by 4.
 
+## 🔁 Cross-check with COMSOL
+
+The same diffusion problem is also solved with the finite element method in COMSOL Multiphysics 4.3a: see [`comsol_solution/`](comsol_solution) for the model file, the exported profiles and a step-by-step guide for students. COMSOL gives a film depth of 1.762 µm after 1 h, the same as the exact solution.
+
 ## ▶️ Run it
 
 ```bash
