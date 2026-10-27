@@ -43,6 +43,10 @@ The error falls by a factor of 4 every time the grid spacing is halved: the sche
 > [!NOTE]
 > The statement does not give the fin size, the conductivity or the convection coefficient. Typical values are used ($`L = 10`$ cm, $`d = 5`$ mm, $`k = 237`$ W/(m·K), $`h = 25`$ W/(m²·K), air at 30 °C). Change them in the first code cell of the notebook and re-run it to explore.
 
+## 🔁 Cross-check with COMSOL
+
+The same fin is also solved with the finite element method in COMSOL Multiphysics 4.3a: see [`comsol_solution/`](comsol_solution) for the model file and a step-by-step guide for students. COMSOL gives the same tip temperature (78.194 °C) and heat loss (2.1702 W) as the exact solution.
+
 ## ▶️ Run it
 
 ```bash
