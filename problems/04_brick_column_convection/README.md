@@ -40,7 +40,11 @@
 Heat rate to the air on this grid: **q′ ≈ 883 W/m**, as in Incropera's example.
 
 > [!IMPORTANT]
-> **Refine the grid and the heat rate drops to about 625 W/m**, while the temperatures change by less than 2 K. On the 0.25 m grid, each bottom corner (held at 500 K) is credited with 12.5 cm of hot surface exposed to the air, which alone gives 500 W/m. The notebook's grid study shows this step by step.
+> **Refine the grid and the heat rate drops to about 625 W/m**, while most temperatures change by less than 3 K (only node 7, next to the cooled corner, moves by 8.6 K). On the 0.25 m grid, each bottom corner (held at 500 K) is credited with 12.5 cm of hot surface exposed to the air, which alone gives 500 W/m. The notebook's grid study shows this step by step.
+
+## 🔁 Cross-check with COMSOL
+
+The same column is also solved with the finite element method in COMSOL Multiphysics 4.3a: see [`comsol_solution/`](comsol_solution) for the model file and a step-by-step guide for students. COMSOL confirms the grid study: on a fine mesh the heat rate to the air is 623.6 W/m.
 
 ## ▶️ Run it
 

@@ -40,6 +40,10 @@
 
 Four equations already give every temperature within 3 °C. Refining the grid converges to the exact values at second order.
 
+## 🔁 Cross-check with COMSOL
+
+The same plate is also solved with the finite element method in COMSOL Multiphysics 4.3a: see [`comsol_solution/`](comsol_solution) for the model file and a step-by-step guide for students. On a fine mesh COMSOL reproduces the exact temperatures (490.36, 359.64, 438.07, 411.93 °C), which shows how close the four-node answer already is.
+
 ## ▶️ Run it
 
 ```bash

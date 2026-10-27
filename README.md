@@ -443,6 +443,9 @@ Four worked problems take you from a 1D steady problem to a 2D problem with a co
 > [!NOTE]
 > **For instructors:** Problems 1 and 3 also have a **whiteboard guide** (`04_whiteboard_guide.pdf`). It solves the problem by hand on a coarse grid with a pocket calculator, board by board, with every intermediate number, so you can teach the method on the board before showing the code.
 
+> [!TIP]
+> **Cross-check with commercial software:** every problem also has a `comsol_solution/` folder with a COMSOL Multiphysics model and a step-by-step guide for students, comparing the finite element results with the finite difference notebook and the exact solution.
+
 | # | Problem | Dimension | Time | Equation | New ideas |
 |:-:|---|:-:|:-:|---|---|
 | 1 | [Aluminium pin fin](problems/01_aluminium_fin) | 1D | steady | fin equation | ghost node for an insulated tip · Gauss–Seidel vs Thomas algorithm |

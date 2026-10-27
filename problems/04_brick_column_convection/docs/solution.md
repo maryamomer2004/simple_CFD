@@ -128,7 +128,7 @@ The two are equal: the control-volume balances add up to a balance for the whole
 ![Left: the temperature field on a $128 \times 128$ grid. Right: the bottom-surface temperature on three grids; only fine grids resolve the steep drop next to the corners.](figures/fine.png)
 
 ::: answer
-**Result.** On the $0.25$ m grid: $T_1 = 489.30$, $T_2 = 485.15$, $T_3 = 472.07$, $T_4 = 462.01$, $T_5 = 436.95$, $T_6 = 418.74$, $T_7 = 356.99$, $T_8 = 339.05$ K, and the heat rate to the air is $q' \approx$ **883 W/m**, as in Incropera's example. Grid refinement shows that the temperatures are already accurate to within about 2 K, while the heat rate converges to about **625 W/m**.
+**Result.** On the $0.25$ m grid: $T_1 = 489.30$, $T_2 = 485.15$, $T_3 = 472.07$, $T_4 = 462.01$, $T_5 = 436.95$, $T_6 = 418.74$, $T_7 = 356.99$, $T_8 = 339.05$ K, and the heat rate to the air is $q' \approx$ **883 W/m**, as in Incropera's example. Grid refinement shows that most temperatures are already within 3 K of the fine-grid values (node 7, next to the cooled corner, within 9 K), while the heat rate converges to about **625 W/m**.
 :::
 
 ## Key ideas
