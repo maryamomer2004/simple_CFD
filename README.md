@@ -443,6 +443,7 @@ Worked problems take you from a 1D steady problem to 2D problems with convective
 | # | Problem | Dimension | Time | Equation | New ideas |
 |:-:|---|:-:|:-:|---|---|
 | 1 | [Aluminium pin fin](problems/01_aluminium_fin) | 1D | steady | fin equation | ghost node for an insulated tip · Gauss–Seidel vs Thomas algorithm |
+| 2 | [Phosphorus diffusion in silicon](problems/02_phosphorus_diffusion) | 1D | unsteady | diffusion (parabolic) | explicit time marching · stability $`r \le 1/2`$ · semi-infinite domain |
 
 <table>
   <tr>
@@ -452,7 +453,9 @@ Worked problems take you from a 1D steady problem to 2D problems with convective
       <p><a href="problems/01_aluminium_fin/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/01_aluminium_fin/02_solution.pdf">📘 Solution</a> · <a href="problems/01_aluminium_fin/03_fdm_solver.ipynb">💻 Notebook</a></p>
     </td>
     <td width="50%" valign="top">
-      <p><b>More problems are on the way</b><br><sub>1D unsteady diffusion and two 2D conduction problems will be added here, each in its own folder.</sub></p>
+      <a href="problems/02_phosphorus_diffusion"><img src="problems/02_phosphorus_diffusion/docs/figures/schematic.png" alt="Problem 2: phosphorus diffusion into a silicon wafer"></a>
+      <p><b>2 · Phosphorus diffusion in silicon</b><br><sub>How deep do dopant atoms penetrate a wafer in one hour?</sub></p>
+      <p><a href="problems/02_phosphorus_diffusion/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/02_phosphorus_diffusion/02_solution.pdf">📘 Solution</a> · <a href="problems/02_phosphorus_diffusion/03_fdm_solver.ipynb">💻 Notebook</a></p>
     </td>
   </tr>
 </table>
@@ -466,12 +469,13 @@ simple_CFD/
 ├── README.md                    ← you are here: the CFD primer
 ├── requirements.txt             ← Python packages used in the course
 ├── problems/
-│   └── 01_aluminium_fin/
-│       ├── 01_problem_statement.pdf
-│       ├── 02_solution.pdf
-│       ├── 03_fdm_solver.ipynb  ← plain-Python solver, step by step
-│       ├── plots.py             ← drawing helpers for the notebook
-│       └── docs/                ← Markdown sources of the PDFs + figures
+│   ├── 01_aluminium_fin/
+│   │   ├── 01_problem_statement.pdf
+│   │   ├── 02_solution.pdf
+│   │   ├── 03_fdm_solver.ipynb  ← plain-Python solver, step by step
+│   │   ├── plots.py             ← drawing helpers for the notebook
+│   │   └── docs/                ← Markdown sources of the PDFs + figures
+│   └── 02_phosphorus_diffusion/ ← same layout in every problem folder
 ├── tools/
 │   └── build_docs.py            ← runs the notebooks and rebuilds the PDFs
 └── assets/
