@@ -444,6 +444,7 @@ Worked problems take you from a 1D steady problem to 2D problems with convective
 |:-:|---|:-:|:-:|---|---|
 | 1 | [Aluminium pin fin](problems/01_aluminium_fin) | 1D | steady | fin equation | ghost node for an insulated tip · Gauss–Seidel vs Thomas algorithm |
 | 2 | [Phosphorus diffusion in silicon](problems/02_phosphorus_diffusion) | 1D | unsteady | diffusion (parabolic) | explicit time marching · stability $`r \le 1/2`$ · semi-infinite domain |
+| 3 | [Plate with four interior nodes](problems/03_plate_four_nodes) | 2D | steady | Laplace (elliptic) | five-point stencil · Gaussian elimination vs Gauss–Seidel |
 
 <table>
   <tr>
@@ -456,6 +457,16 @@ Worked problems take you from a 1D steady problem to 2D problems with convective
       <a href="problems/02_phosphorus_diffusion"><img src="problems/02_phosphorus_diffusion/docs/figures/schematic.png" alt="Problem 2: phosphorus diffusion into a silicon wafer"></a>
       <p><b>2 · Phosphorus diffusion in silicon</b><br><sub>How deep do dopant atoms penetrate a wafer in one hour?</sub></p>
       <p><a href="problems/02_phosphorus_diffusion/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/02_phosphorus_diffusion/02_solution.pdf">📘 Solution</a> · <a href="problems/02_phosphorus_diffusion/03_fdm_solver.ipynb">💻 Notebook</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="problems/03_plate_four_nodes"><img src="problems/03_plate_four_nodes/docs/figures/schematic.png" alt="Problem 3: square plate with four interior nodes"></a>
+      <p><b>3 · Plate with four interior nodes</b><br><sub>Temperatures inside a plate whose four edges are held at different temperatures.</sub></p>
+      <p><a href="problems/03_plate_four_nodes/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/03_plate_four_nodes/02_solution.pdf">📘 Solution</a> · <a href="problems/03_plate_four_nodes/03_fdm_solver.ipynb">💻 Notebook</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <p><b>More problems are on the way</b><br><sub>A 2D conduction problem with a convective boundary will be added here.</sub></p>
     </td>
   </tr>
 </table>
@@ -475,7 +486,8 @@ simple_CFD/
 │   │   ├── 03_fdm_solver.ipynb  ← plain-Python solver, step by step
 │   │   ├── plots.py             ← drawing helpers for the notebook
 │   │   └── docs/                ← Markdown sources of the PDFs + figures
-│   └── 02_phosphorus_diffusion/ ← same layout in every problem folder
+│   ├── 02_phosphorus_diffusion/ ← same layout in every problem folder
+│   └── 03_plate_four_nodes/
 ├── tools/
 │   └── build_docs.py            ← runs the notebooks and rebuilds the PDFs
 └── assets/
