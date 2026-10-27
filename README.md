@@ -32,7 +32,7 @@
 > [!NOTE]
 > **Who is this for?** Students taking their very first steps in Computational Fluid Dynamics (CFD). You need basic calculus (derivatives, Taylor series), a little linear algebra and some Python. Everything else is built up on this page, one step at a time.
 >
-> **How to read it:** first we ask *what problem CFD solves*, then we walk through the **7 pillars** every CFD analysis is built on. One small problem, marked 🔥 **Running example**, follows us through all seven pillars so you can see each idea applied.
+> **How to read it:** first we ask *what problem CFD solves*, then we walk through the **7 pillars** every CFD analysis is built on. One small problem, marked 🔥 **Running example**, follows us through all seven pillars so you can see each idea applied. Then you practise on [worked problems](#-course-problems), each with a problem sheet, a step-by-step solution and a plain-Python notebook.
 
 ## 📖 Contents
 
@@ -431,12 +431,31 @@ Popular tools: **Matplotlib** (used in this course), **ParaView** and **VisIt** 
 
 ## 🧪 Course problems
 
-The course is built around two worked problems. Each one walks through all 7 pillars, from the physical problem to the final plots, with a fully commented Python solver.
+Worked problems take you from a 1D steady problem to 2D problems with convective boundaries. Each one walks through all 7 pillars, and each lives in its own folder with three files:
 
-| | Problem | Dimension | Status |
-|:-:|---|:-:|:-:|
-| **1** | *Coming soon* | 1D | 🚧 in preparation |
-| **2** | *Coming soon* | 2D | 🚧 in preparation |
+<p align="center">
+  📄 <b>problem statement</b> (PDF) &nbsp;→&nbsp; 📘 <b>step-by-step solution</b> (PDF) &nbsp;→&nbsp; 💻 <b>Jupyter notebook</b> with the complete solver
+</p>
+
+> [!TIP]
+> **The solvers use plain Python only:** lists and `for` loops, with no NumPy or SciPy. Every number is computed by code you can read line by line, so nothing about the numerical method is hidden inside a library. Plots are drawn by a small `plots.py` helper next to each notebook.
+
+| # | Problem | Dimension | Time | Equation | New ideas |
+|:-:|---|:-:|:-:|---|---|
+| 1 | [Aluminium pin fin](problems/01_aluminium_fin) | 1D | steady | fin equation | ghost node for an insulated tip · Gauss–Seidel vs Thomas algorithm |
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="problems/01_aluminium_fin"><img src="problems/01_aluminium_fin/docs/figures/schematic.png" alt="Problem 1: aluminium pin fin"></a>
+      <p><b>1 · Aluminium pin fin</b><br><sub>Steady temperature along a fin with a hot base and an insulated tip.</sub></p>
+      <p><a href="problems/01_aluminium_fin/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/01_aluminium_fin/02_solution.pdf">📘 Solution</a> · <a href="problems/01_aluminium_fin/03_fdm_solver.ipynb">💻 Notebook</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <p><b>More problems are on the way</b><br><sub>1D unsteady diffusion and two 2D conduction problems will be added here, each in its own folder.</sub></p>
+    </td>
+  </tr>
+</table>
 
 <br>
 
@@ -444,11 +463,20 @@ The course is built around two worked problems. Each one walks through all 7 pil
 
 ```text
 simple_CFD/
-├── README.md            ← you are here: the CFD primer
-├── requirements.txt     ← Python packages used in the course
+├── README.md                    ← you are here: the CFD primer
+├── requirements.txt             ← Python packages used in the course
+├── problems/
+│   └── 01_aluminium_fin/
+│       ├── 01_problem_statement.pdf
+│       ├── 02_solution.pdf
+│       ├── 03_fdm_solver.ipynb  ← plain-Python solver, step by step
+│       ├── plots.py             ← drawing helpers for the notebook
+│       └── docs/                ← Markdown sources of the PDFs + figures
+├── tools/
+│   └── build_docs.py            ← runs the notebooks and rebuilds the PDFs
 └── assets/
-    ├── make_figures.py  ← generates every figure on this page
-    └── images/          ← the figures, in light and dark versions
+    ├── make_figures.py          ← generates every figure on this page
+    └── images/                  ← the figures, in light and dark versions
 ```
 
 <br>
@@ -460,11 +488,28 @@ git clone https://github.com/maryamomer2004/simple_CFD.git
 cd simple_CFD
 python -m venv .venv && source .venv/bin/activate   # optional, but recommended
 pip install -r requirements.txt
-python assets/make_figures.py                        # rebuild all figures on this page
+jupyter lab problems/01_aluminium_fin/03_fdm_solver.ipynb   # open the first problem
 ```
 
+No installation at all? Every notebook can also be read directly on GitHub, with its outputs and plots, or opened in [Google Colab](https://colab.research.google.com/) (upload the notebook together with the `plots.py` file next to it).
+
 > [!TIP]
-> Every figure on this page is computed by [`assets/make_figures.py`](assets/make_figures.py) with the finite difference method. Open it to find small, working FDM solvers: the Laplace equation solved directly, the heat equation marched with FTCS, and Jacobi, Gauss–Seidel and SOR iterations.
+> Every figure on this page is computed by [`assets/make_figures.py`](assets/make_figures.py) (run `python assets/make_figures.py` to rebuild them) with the finite difference method. Open it to find more small FDM solvers: the Laplace equation solved directly, the heat equation marched with FTCS, and Jacobi, Gauss–Seidel and SOR iterations.
+
+<details>
+<summary><b>For instructors: editing the problems and rebuilding the PDFs</b></summary>
+<br>
+
+The PDFs are generated from the Markdown files in each problem's `docs/` folder, and pull their code, printed results and figures straight from the notebook, so the three files always agree. After editing a notebook or a Markdown source, run:
+
+```bash
+pip install nbclient ipykernel
+python tools/build_docs.py                      # all problems, or e.g. 01_aluminium_fin for one
+```
+
+This needs [pandoc](https://pandoc.org/) and Google Chrome or Chromium (use `--chrome PATH` if it is not found automatically). The script re-runs each notebook, exports its tagged figures and prints the PDFs.
+
+</details>
 
 <br>
 
