@@ -15,8 +15,9 @@
 | 📄 [`01_problem_statement.pdf`](01_problem_statement.pdf) | the problem, data, assumptions and tasks |
 | 📘 [`02_solution.pdf`](02_solution.pdf) | the step-by-step solution: five-point formula, node equations, Gaussian elimination, Gauss–Seidel, energy check, grid study |
 | 💻 [`03_fdm_solver.ipynb`](03_fdm_solver.ipynb) | the complete solver in **plain Python**, explained cell by cell, with plots |
+| 🧮 [`04_whiteboard_guide.pdf`](04_whiteboard_guide.pdf) | **for instructors:** the problem solved by hand on the board, with the four node equations and a pocket calculator, board by board with every intermediate number |
 | 🎨 [`plots.py`](plots.py) | drawing helpers used by the notebook (matplotlib only, no numerics) |
-| 🛠️ [`docs/`](docs) | Markdown sources of the two PDFs and their figures |
+| 🛠️ [`docs/`](docs) | Markdown sources of the PDFs and their figures |
 
 ## 🎯 What you will learn
 

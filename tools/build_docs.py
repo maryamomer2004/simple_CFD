@@ -6,7 +6,9 @@ For each folder in ``problems/`` this script
 1. runs the Jupyter notebook, so the committed notebook shows its outputs;
 2. copies the figures of cells tagged ``fig:<name>`` to ``docs/figures/<name>.png``;
 3. turns ``docs/problem.md`` and ``docs/solution.md`` into
-   ``01_problem_statement.pdf`` and ``02_solution.pdf``.
+   ``01_problem_statement.pdf`` and ``02_solution.pdf``, and, where it exists,
+   ``docs/whiteboard.md`` (the instructor's hand-calculation guide) into
+   ``04_whiteboard_guide.pdf``.
 
 Inside the Markdown sources, ``{{code:<name>}}`` is replaced by the code of the
 notebook cells tagged ``code:<name>`` and ``{{out:<name>}}`` by the printed
@@ -37,7 +39,8 @@ ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "tools"
 PROBLEMS = ROOT / "problems"
 MATHJAX_CDN = "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"
-OUTPUTS = {"problem.md": "01_problem_statement.pdf", "solution.md": "02_solution.pdf"}
+OUTPUTS = {"problem.md": "01_problem_statement.pdf", "solution.md": "02_solution.pdf",
+           "whiteboard.md": "04_whiteboard_guide.pdf"}
 
 
 def find_chrome(explicit):
