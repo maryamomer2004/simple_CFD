@@ -1,0 +1,90 @@
+/* Print style shared by every problem statement and solution PDF. */
+:root {
+  --ink: #1f2328; --ink2: #59636e; --muted: #818b98; --rule: #d8dee4; --surface: #f6f8fa;
+  --blue: #2a78d6; --orange: #eb6834; --aqua: #1baf7a; --violet: #6250d6; --red: #d03b3b;
+}
+@page {
+  size: A4;
+  margin: 17mm 17mm 18mm 17mm;
+  @bottom-left { font: 7.5pt Inter, "DejaVu Sans", sans-serif; color: #818b98; }
+  @bottom-right { font: 7.5pt Inter, "DejaVu Sans", sans-serif; color: #818b98; }
+}
+html { font-size: 10pt; }
+body {
+  margin: 0; color: var(--ink); background: white;
+  font-family: Inter, "Segoe UI", "DejaVu Sans", sans-serif; line-height: 1.5;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
+/* cover block */
+.cover { border-bottom: 1.5px solid var(--rule); padding-bottom: 12px; margin-bottom: 18px; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 8.5pt; color: var(--ink2); }
+.wordmark { font-weight: 700; font-size: 11pt; color: var(--ink); letter-spacing: -0.01em; }
+.bars { display: inline-flex; gap: 3px; margin-right: 6px; }
+.bars i { display: inline-block; width: 14px; height: 4px; border-radius: 2px; }
+.b1 { background: var(--blue); } .b2 { background: var(--orange); } .b3 { background: var(--aqua); }
+.course { margin-left: auto; }
+.eyebrow { margin-top: 22px; font-size: 8.5pt; font-weight: 700; letter-spacing: 0.09em;
+           text-transform: uppercase; color: var(--blue); }
+h1.title { font-size: 21pt; line-height: 1.2; margin: 4px 0 4px; letter-spacing: -0.015em; }
+.subtitle { margin: 0; font-size: 11pt; color: var(--ink2); }
+
+/* headings */
+h2 { font-size: 13.5pt; margin: 22px 0 6px; padding-bottom: 3px; border-bottom: 1px solid var(--rule);
+     break-after: avoid; letter-spacing: -0.01em; }
+h2 .step { color: var(--blue); }
+h3 { font-size: 11pt; margin: 16px 0 4px; break-after: avoid; }
+h4 { font-size: 10pt; margin: 12px 0 2px; color: var(--ink2); break-after: avoid; }
+p { margin: 6px 0; }
+ul, ol { margin: 6px 0; padding-left: 20px; }
+li { margin: 2px 0; }
+strong { font-weight: 650; }
+a { color: var(--blue); text-decoration: none; }
+
+/* tables */
+table { border-collapse: collapse; margin: 10px auto; font-size: 9pt; break-inside: avoid; }
+th, td { border: 1px solid var(--rule); padding: 4px 9px; vertical-align: top; }
+th { background: var(--surface); font-weight: 650; text-align: left; }
+caption { caption-side: bottom; font-size: 8.5pt; color: var(--ink2); padding-top: 4px; }
+
+/* figures */
+figure { margin: 12px 0; text-align: center; break-inside: avoid; }
+figure img { max-width: 100%; max-height: 92mm; }
+figcaption { font-size: 8.5pt; color: var(--ink2); margin-top: 4px; }
+img.small { max-width: 70%; }
+
+/* code */
+pre, code { font-family: "DejaVu Sans Mono", Menlo, Consolas, monospace; }
+code { font-size: 8.6pt; background: var(--surface); padding: 0 3px; border-radius: 3px; }
+pre { font-size: 8.1pt; line-height: 1.42; background: var(--surface); border: 1px solid var(--rule);
+      border-left: 3px solid var(--blue); border-radius: 4px; padding: 7px 10px; margin: 8px 0;
+      white-space: pre-wrap; break-inside: avoid; }
+pre code { background: none; padding: 0; font-size: inherit; }
+pre.text, div.sourceCode pre.text { border-left-color: var(--aqua); }
+div.sourceCode { margin: 8px 0; break-inside: avoid; }
+
+/* math */
+mjx-container[display="true"] { margin: 8px 0 !important; }
+.math.display { display: block; break-inside: avoid; }
+
+/* callouts: ::: given / note / tip / warning / answer */
+.given, .note, .tip, .warning, .answer, .goal {
+  border: 1px solid var(--rule); border-left: 4px solid var(--blue); border-radius: 5px;
+  padding: 6px 12px; margin: 10px 0; background: #fbfcfd; break-inside: avoid;
+}
+.given { border-left-color: var(--blue); }
+.goal { border-left-color: var(--violet); }
+.tip { border-left-color: var(--aqua); }
+.warning { border-left-color: var(--orange); }
+.answer { border-left-color: var(--aqua); background: #f2fbf7; }
+.given > p:first-child, .note > p:first-child, .tip > p:first-child, .warning > p:first-child,
+.answer > p:first-child, .goal > p:first-child { margin-top: 2px; }
+.label { font-size: 8pt; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); }
+
+.pagebreak { break-before: page; }
+.columns { display: flex; gap: 16px; align-items: flex-start; }
+.columns > div { flex: 1; }
+
+/* undo pandoc's hanging indent for wrapped code lines */
+pre > code.sourceCode > span { text-indent: 0 !important; padding-left: 0 !important; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: none !important; }

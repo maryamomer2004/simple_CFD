@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>$title$</title>
+<style>
+$highlighting-css$
+@page {
+  @bottom-left { content: "simple_CFD  ·  Problem $problem$  ·  $kind$"; }
+  @bottom-right { content: counter(page) " / " counter(pages); }
+}
+</style>
+$for(header-includes)$
+$header-includes$
+$endfor$
+<script>
+window.MathJax = { tex: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]] },
+                   svg: { fontCache: "global" } };
+</script>
+$if(math)$
+$math$
+$endif$
+</head>
+<body>
+<header class="cover">
+  <div class="brand">
+    <span class="wordmark">simple_CFD</span>
+    <span class="bars"><i class="b1"></i><i class="b2"></i><i class="b3"></i></span>
+    <span class="course">Introduction to Computational Fluid Dynamics &nbsp;·&nbsp; Finite Difference Method</span>
+  </div>
+  <div class="eyebrow">Problem $problem$ &nbsp;·&nbsp; $kind$</div>
+  <h1 class="title">$title$</h1>
+$if(subtitle)$
+  <p class="subtitle">$subtitle$</p>
+$endif$
+</header>
+<main>
+$body$
+</main>
+</body>
+</html>
