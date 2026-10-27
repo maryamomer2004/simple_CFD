@@ -1,0 +1,8 @@
+# Plotting in the problem notebooks (the solvers themselves use plain Python only)
+matplotlib>=3.8
+jupyterlab>=4.0
+
+# Extra packages used only to regenerate the README figures (assets/make_figures.py)
+numpy>=1.24
+scipy>=1.10
+pillow>=9.1
