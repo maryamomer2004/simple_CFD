@@ -440,6 +440,9 @@ Four worked problems take you from a 1D steady problem to a 2D problem with a co
 > [!TIP]
 > **The solvers use plain Python only:** lists and `for` loops, with no NumPy or SciPy. Every number is computed by code you can read line by line, so nothing about the numerical method is hidden inside a library. Plots are drawn by a small `plots.py` helper next to each notebook.
 
+> [!NOTE]
+> **For instructors:** Problems 1 and 3 also have a **whiteboard guide** (`04_whiteboard_guide.pdf`). It solves the problem by hand on a coarse grid with a pocket calculator, board by board, with every intermediate number, so you can teach the method on the board before showing the code.
+
 | # | Problem | Dimension | Time | Equation | New ideas |
 |:-:|---|:-:|:-:|---|---|
 | 1 | [Aluminium pin fin](problems/01_aluminium_fin) | 1D | steady | fin equation | ghost node for an insulated tip · Gauss–Seidel vs Thomas algorithm |
@@ -452,7 +455,7 @@ Four worked problems take you from a 1D steady problem to a 2D problem with a co
     <td width="50%" valign="top">
       <a href="problems/01_aluminium_fin"><img src="problems/01_aluminium_fin/docs/figures/schematic.png" alt="Problem 1: aluminium pin fin"></a>
       <p><b>1 · Aluminium pin fin</b><br><sub>Steady temperature along a fin with a hot base and an insulated tip.</sub></p>
-      <p><a href="problems/01_aluminium_fin/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/01_aluminium_fin/02_solution.pdf">📘 Solution</a> · <a href="problems/01_aluminium_fin/03_fdm_solver.ipynb">💻 Notebook</a></p>
+      <p><a href="problems/01_aluminium_fin/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/01_aluminium_fin/02_solution.pdf">📘 Solution</a> · <a href="problems/01_aluminium_fin/03_fdm_solver.ipynb">💻 Notebook</a> · <a href="problems/01_aluminium_fin/04_whiteboard_guide.pdf">🧮 Whiteboard</a></p>
     </td>
     <td width="50%" valign="top">
       <a href="problems/02_phosphorus_diffusion"><img src="problems/02_phosphorus_diffusion/docs/figures/schematic.png" alt="Problem 2: phosphorus diffusion into a silicon wafer"></a>
@@ -464,7 +467,7 @@ Four worked problems take you from a 1D steady problem to a 2D problem with a co
     <td width="50%" valign="top">
       <a href="problems/03_plate_four_nodes"><img src="problems/03_plate_four_nodes/docs/figures/schematic.png" alt="Problem 3: square plate with four interior nodes"></a>
       <p><b>3 · Plate with four interior nodes</b><br><sub>Temperatures inside a plate whose four edges are held at different temperatures.</sub></p>
-      <p><a href="problems/03_plate_four_nodes/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/03_plate_four_nodes/02_solution.pdf">📘 Solution</a> · <a href="problems/03_plate_four_nodes/03_fdm_solver.ipynb">💻 Notebook</a></p>
+      <p><a href="problems/03_plate_four_nodes/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/03_plate_four_nodes/02_solution.pdf">📘 Solution</a> · <a href="problems/03_plate_four_nodes/03_fdm_solver.ipynb">💻 Notebook</a> · <a href="problems/03_plate_four_nodes/04_whiteboard_guide.pdf">🧮 Whiteboard</a></p>
     </td>
     <td width="50%" valign="top">
       <a href="problems/04_brick_column_convection"><img src="problems/04_brick_column_convection/docs/figures/schematic.png" alt="Problem 4: fireclay brick column cooled by air on one side"></a>
@@ -487,6 +490,7 @@ simple_CFD/
 │   │   ├── 01_problem_statement.pdf
 │   │   ├── 02_solution.pdf
 │   │   ├── 03_fdm_solver.ipynb  ← plain-Python solver, step by step
+│   │   ├── 04_whiteboard_guide.pdf ← hand calculation for the board (Problems 1 and 3)
 │   │   ├── plots.py             ← drawing helpers for the notebook
 │   │   └── docs/                ← Markdown sources of the PDFs + figures
 │   ├── 02_phosphorus_diffusion/ ← same layout in every problem folder
