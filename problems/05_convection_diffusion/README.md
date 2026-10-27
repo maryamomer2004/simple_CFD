@@ -46,6 +46,10 @@ Node values on 5 intervals ($`\Delta x = 0.2`$ m):
 
 For the slow flow both schemes work. For the fast flow central differences produce values above 1, which are impossible, and upwind is bounded but smeared. Refining the grid for $`u = 2.5`$ m/s (up to 320 intervals), CDS converges at **2nd order** once $`Pe_\Delta < 2`$, UDS at only **1st order**.
 
+## 🔁 Cross-check with COMSOL
+
+The same problem is also solved with the finite element method in COMSOL Multiphysics 4.3a: see [`comsol_solution/`](comsol_solution) for the model file and a step-by-step guide for students. With its stabilisation switched off, COMSOL reproduces the central-difference values exactly, including the wiggle up to 1.41. With its default stabilisation it stays between 0 and 1 (0.886 at $`x = 0.8`$ m instead of the exact 0.993).
+
 ## ▶️ Run it
 
 ```bash
