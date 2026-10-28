@@ -55,7 +55,7 @@ The grid study at the end solves both cases on up to 65 × 65 nodes and takes ab
 
 ## 🔁 Cross-check with COMSOL
 
-The same problem is also solved with the finite element method in COMSOL Multiphysics 4.3a (Non-Isothermal Flow): see [`comsol_solution/`](comsol_solution) for the model file and a step-by-step guide for students. On the same 33 × 33 nodes COMSOL gives $`\lvert\psivert = 1.171`$ and $`5.073`$ at the centre and $`\overline{Nu} = 1.117`$ and $`2.235`$. On 128 × 128 elements it agrees with de Vahl Davis to 0.1 %.
+The same problem is also solved with the finite element method in COMSOL Multiphysics 4.3a (Non-Isothermal Flow): see [`comsol_solution/`](comsol_solution) for the model file and a step-by-step guide for students. On the same 33 × 33 nodes COMSOL gives $`\lvert\psi\rvert = 1.171`$ and $`5.073`$ at the centre and $`\overline{Nu} = 1.117`$ and $`2.235`$. On 128 × 128 elements it agrees with de Vahl Davis to 0.1 %.
 
 ---
 
