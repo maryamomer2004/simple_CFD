@@ -1,3 +1,4 @@
 # Generated documents and COMSOL models are binary: no line-by-line diffs
 *.pdf binary
 *.mph binary
+*.pptx binary
