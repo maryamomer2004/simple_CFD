@@ -32,7 +32,7 @@
 > [!NOTE]
 > **Who is this for?** Students taking their very first steps in Computational Fluid Dynamics (CFD). You need basic calculus (derivatives, Taylor series), a little linear algebra and some Python. Everything else is built up on this page, one step at a time.
 >
-> **How to read it:** first we ask *what problem CFD solves*, then we walk through the **7 pillars** every CFD analysis is built on. One small problem, marked 🔥 **Running example**, follows us through all seven pillars so you can see each idea applied. Then you practise on [five worked problems](#-course-problems), each with a problem sheet, a step-by-step solution and a plain-Python notebook.
+> **How to read it:** first we ask *what problem CFD solves*, then we walk through the **7 pillars** every CFD analysis is built on. One small problem, marked 🔥 **Running example**, follows us through all seven pillars so you can see each idea applied. Then you practise on [six worked problems](#-course-problems), each with a problem sheet, a step-by-step solution and a plain-Python notebook.
 
 ## 📖 Contents
 
@@ -431,7 +431,7 @@ Popular tools: **Matplotlib** (used in this course), **ParaView** and **VisIt** 
 
 ## 🧪 Course problems
 
-Five worked problems take you from a 1D steady problem to a 2D problem with a convective boundary, and finally to a moving fluid that carries what it contains: convection. Each one walks through all 7 pillars, and each lives in its own folder with three files:
+Six worked problems take you from a 1D steady problem to a 2D problem with a convective boundary, then to a moving fluid that carries what it contains (convection), and finally to the Navier–Stokes equations themselves. Each one walks through all 7 pillars, and each lives in its own folder with three files:
 
 <p align="center">
   📄 <b>problem statement</b> (PDF) &nbsp;→&nbsp; 📘 <b>step-by-step solution</b> (PDF) &nbsp;→&nbsp; 💻 <b>Jupyter notebook</b> with the complete solver
@@ -441,10 +441,10 @@ Five worked problems take you from a 1D steady problem to a 2D problem with a co
 > **The solvers use plain Python only:** lists and `for` loops, with no NumPy or SciPy. Every number is computed by code you can read line by line, so nothing about the numerical method is hidden inside a library. Plots are drawn by a small `plots.py` helper next to each notebook.
 
 > [!NOTE]
-> **For instructors:** Problems 1, 3 and 5 also have a **whiteboard guide** (`04_whiteboard_guide.pdf`). It solves the problem by hand on a coarse grid with a pocket calculator, board by board, with every intermediate number, so you can teach the method on the board before showing the code.
+> **For instructors:** Problems 1, 3, 5 and 6 also have a **whiteboard guide** (`04_whiteboard_guide.pdf`). It solves the problem by hand on a coarse grid with a pocket calculator (for Problem 6, the first two iterations), board by board, with every intermediate number, so you can teach the method on the board before showing the code.
 
 > [!TIP]
-> **Cross-check with commercial software:** every problem also has a `comsol_solution/` folder with a COMSOL Multiphysics model and a step-by-step guide for students, comparing the finite element results with the finite difference notebook and the exact solution.
+> **Cross-check with commercial software:** Problems 1 to 5 also have a `comsol_solution/` folder with a COMSOL Multiphysics model and a step-by-step guide for students, comparing the finite element results with the finite difference notebook and the exact solution.
 
 | # | Problem | Dimension | Time | Equation | New ideas |
 |:-:|---|:-:|:-:|---|---|
@@ -453,6 +453,7 @@ Five worked problems take you from a 1D steady problem to a 2D problem with a co
 | 3 | [Plate with four interior nodes](problems/03_plate_four_nodes) | 2D | steady | Laplace (elliptic) | five-point stencil · Gaussian elimination vs Gauss–Seidel |
 | 4 | [Brick column cooled by air](problems/04_brick_column_convection) | 2D | steady | Laplace (elliptic) | energy-balance node equations · convective boundary · symmetry |
 | 5 | [Convection and diffusion](problems/05_convection_diffusion) | 1D | steady | convection–diffusion | Péclet number · central vs upwind differences · false diffusion |
+| 6 | [Lid-driven cavity flow](problems/06_lid_driven_cavity) | 2D | steady | Navier–Stokes (stream function–vorticity) | coupled equations · wall vorticity (Thom) · benchmark validation |
 
 <table>
   <tr>
@@ -490,6 +491,17 @@ Five worked problems take you from a 1D steady problem to a 2D problem with a co
       <p><b>5 · The result</b><br><sub>When the cell Péclet number exceeds 2, central differences wiggle outside the physical range; upwind stays bounded but smeared.</sub></p>
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="problems/06_lid_driven_cavity"><img src="problems/06_lid_driven_cavity/docs/figures/schematic.png" alt="Problem 6: a square cavity whose lid slides to the right, driving a clockwise vortex"></a>
+      <p><b>6 · Lid-driven cavity flow</b><br><sub>The Navier–Stokes equations at last: the flow in a box stirred by a sliding lid.</sub></p>
+      <p><a href="problems/06_lid_driven_cavity/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/06_lid_driven_cavity/02_solution.pdf">📘 Solution</a> · <a href="problems/06_lid_driven_cavity/03_fdm_solver.ipynb">💻 Notebook</a> · <a href="problems/06_lid_driven_cavity/04_whiteboard_guide.pdf">🧮 Whiteboard</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="problems/06_lid_driven_cavity"><img src="problems/06_lid_driven_cavity/docs/figures/profiles.png" alt="Problem 6 result: velocity profiles along the two centre lines of the cavity on several grids, converging to the Ghia et al. benchmark points"></a>
+      <p><b>6 · The result</b><br><sub>Refining the grid, the centre-line velocities converge to the classic Ghia et al. (1982) benchmark.</sub></p>
+    </td>
+  </tr>
 </table>
 
 <br>
@@ -505,13 +517,14 @@ simple_CFD/
 │   │   ├── 01_problem_statement.pdf
 │   │   ├── 02_solution.pdf
 │   │   ├── 03_fdm_solver.ipynb  ← plain-Python solver, step by step
-│   │   ├── 04_whiteboard_guide.pdf ← hand calculation for the board (Problems 1, 3 and 5)
+│   │   ├── 04_whiteboard_guide.pdf ← hand calculation for the board (Problems 1, 3, 5 and 6)
 │   │   ├── plots.py             ← drawing helpers for the notebook
 │   │   └── docs/                ← Markdown sources of the PDFs + figures
 │   ├── 02_phosphorus_diffusion/ ← same layout in every problem folder
 │   ├── 03_plate_four_nodes/
 │   ├── 04_brick_column_convection/
-│   └── 05_convection_diffusion/
+│   ├── 05_convection_diffusion/
+│   └── 06_lid_driven_cavity/
 ├── tools/
 │   └── build_docs.py            ← runs the notebooks and rebuilds the PDFs
 └── assets/
