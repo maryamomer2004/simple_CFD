@@ -455,6 +455,7 @@ Seven worked problems take you from a 1D steady problem to a 2D problem with a c
 | 5 | [Convection and diffusion](problems/05_convection_diffusion) | 1D | steady | convection–diffusion | Péclet number · central vs upwind differences · false diffusion |
 | 6 | [Lid-driven cavity flow](problems/06_lid_driven_cavity) | 2D | steady | Navier–Stokes (stream function–vorticity) | coupled equations · wall vorticity (Thom) · benchmark validation |
 | 7 | [Natural convection in a heated cavity](problems/07_natural_convection) | 2D | steady | Navier–Stokes + energy (Boussinesq) | buoyancy · Nusselt number · Richardson extrapolation |
+| 8 | [Cooling a steel billet](problems/08_billet_cooling) | 2D | unsteady | heat equation (parabolic) | 2D time marching · stability with a convective boundary · ADI + Thomas · product solution |
 
 <table>
   <tr>
@@ -512,6 +513,17 @@ Seven worked problems take you from a 1D steady problem to a 2D problem with a c
     <td width="50%" valign="top">
       <a href="problems/07_natural_convection"><img src="problems/07_natural_convection/docs/figures/fields.png" alt="Problem 7 result: streamlines and isotherms for Rayleigh numbers 1000 and 10000"></a>
       <p><b>7 · The result</b><br><sub>At Ra = 10⁴ the flow more than doubles the heat transfer; Richardson extrapolation matches the de Vahl Davis benchmark to 0.1 %.</sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="problems/08_billet_cooling"><img src="problems/08_billet_cooling/docs/figures/schematic.png" alt="Problem 8: the square cross-section of a steel billet, cooled on all four sides; the quarter between the two symmetry lines is modelled"></a>
+      <p><b>8 · Cooling a steel billet</b><br><sub>A hot steel bar cooled on all four sides: when is its core cool enough? Explicit or implicit time steps?</sub></p>
+      <p><a href="problems/08_billet_cooling/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/08_billet_cooling/02_solution.pdf">📘 Solution</a> · <a href="problems/08_billet_cooling/03_fdm_solver.ipynb">💻 Notebook</a> · <a href="problems/08_billet_cooling/04_whiteboard_guide.pdf">🧮 Whiteboard</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="problems/08_billet_cooling"><img src="problems/08_billet_cooling/docs/figures/history.png" alt="Problem 8 result: temperature against time at the centre, the middle of a face and the corner of the billet, finite differences on the exact curves, with the lumped-capacitance prediction"></a>
+      <p><b>8 · The result</b><br><sub>The centre reaches 100 °C after 349 s, not 230 s as lumped capacitance claims; ADI takes 20 times larger steps than FTCS and is still more accurate.</sub></p>
     </td>
   </tr>
 </table>
