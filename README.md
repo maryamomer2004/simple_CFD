@@ -457,6 +457,7 @@ Seven worked problems take you from a 1D steady problem to a 2D problem with a c
 | 7 | [Natural convection in a heated cavity](problems/07_natural_convection) | 2D | steady | Navier–Stokes + energy (Boussinesq) | buoyancy · Nusselt number · Richardson extrapolation |
 | 8 | [Cooling a steel billet](problems/08_billet_cooling) | 2D | unsteady | heat equation (parabolic) | 2D time marching · stability with a convective boundary · ADI + Thomas · product solution |
 | 9 | [Advection of a pulse](problems/09_linear_advection) | 1D | unsteady | advection (hyperbolic) | hyperbolic equation · CFL condition · von Neumann analysis · numerical diffusion vs dispersion |
+| 10 | [Developing laminar flow in a channel](problems/10_channel_flow) | 2D | steady (time marching) | Navier–Stokes ($`u`$, $`v`$, $`p`$) | primitive variables · staggered grid · projection method · pressure Poisson · inlet/outlet conditions |
 
 <table>
   <tr>
@@ -536,6 +537,17 @@ Seven worked problems take you from a 1D steady problem to a 2D problem with a c
     <td width="50%" valign="top">
       <a href="problems/09_linear_advection"><img src="problems/09_linear_advection/docs/figures/lap.png" alt="Problem 9 result: after one lap upwind returns the pulses smeared but positive, Lax-Wendroff keeps the Gaussian but leaves wiggles behind the square pulse"></a>
       <p><b>9 · The result</b><br><sub>Upwind smears the pulse to 58 % of its height (numerical diffusion); Lax–Wendroff keeps 96 % but wiggles (dispersion). FTCS always blows up.</sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="problems/10_channel_flow"><img src="problems/10_channel_flow/docs/figures/schematic.png" alt="Problem 10: a uniform flow enters a channel between two plates, boundary layers grow on both walls, and the velocity profile becomes a parabola"></a>
+      <p><b>10 · Developing laminar flow in a channel</b><br><sub>Velocity and pressure at last: the projection method on a staggered grid, with an inlet and an outlet.</sub></p>
+      <p><a href="problems/10_channel_flow/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/10_channel_flow/02_solution.pdf">📘 Solution</a> · <a href="problems/10_channel_flow/03_fdm_solver.ipynb">💻 Notebook</a> · <a href="problems/10_channel_flow/04_whiteboard_guide.pdf">🧮 Whiteboard</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="problems/10_channel_flow"><img src="problems/10_channel_flow/docs/figures/centreline.png" alt="Problem 10 result: the centre-line velocity rises from 1 to 1.5; the computed entrance lengths for Re = 50 and 100 lie close to the correlation of Durst et al."></a>
+      <p><b>10 · The result</b><br><sub>The flow becomes Poiseuille flow after 2.4 H (Re = 50) and 4.7 H (Re = 100), within 2–3 % of the Durst et al. (2005) correlation; mass is conserved to eight decimals.</sub></p>
     </td>
   </tr>
 </table>
