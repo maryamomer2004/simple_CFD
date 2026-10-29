@@ -455,6 +455,7 @@ Seven worked problems take you from a 1D steady problem to a 2D problem with a c
 | 5 | [Convection and diffusion](problems/05_convection_diffusion) | 1D | steady | convection–diffusion | Péclet number · central vs upwind differences · false diffusion |
 | 6 | [Lid-driven cavity flow](problems/06_lid_driven_cavity) | 2D | steady | Navier–Stokes (stream function–vorticity) | coupled equations · wall vorticity (Thom) · benchmark validation |
 | 7 | [Natural convection in a heated cavity](problems/07_natural_convection) | 2D | steady | Navier–Stokes + energy (Boussinesq) | buoyancy · Nusselt number · Richardson extrapolation |
+| 9 | [Advection of a pulse](problems/09_linear_advection) | 1D | unsteady | advection (hyperbolic) | hyperbolic equation · CFL condition · von Neumann analysis · numerical diffusion vs dispersion |
 
 <table>
   <tr>
@@ -512,6 +513,17 @@ Seven worked problems take you from a 1D steady problem to a 2D problem with a c
     <td width="50%" valign="top">
       <a href="problems/07_natural_convection"><img src="problems/07_natural_convection/docs/figures/fields.png" alt="Problem 7 result: streamlines and isotherms for Rayleigh numbers 1000 and 10000"></a>
       <p><b>7 · The result</b><br><sub>At Ra = 10⁴ the flow more than doubles the heat transfer; Richardson extrapolation matches the de Vahl Davis benchmark to 0.1 %.</sub></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="problems/09_linear_advection"><img src="problems/09_linear_advection/docs/figures/schematic.png" alt="Problem 9: water carries a pulse of dye round a closed loop of pipe; unrolled, the loop is a periodic domain"></a>
+      <p><b>9 · Advection of a pulse</b><br><sub>A dye pulse rides round a loop: does it come back unchanged after one lap?</sub></p>
+      <p><a href="problems/09_linear_advection/01_problem_statement.pdf">📄 Problem</a> · <a href="problems/09_linear_advection/02_solution.pdf">📘 Solution</a> · <a href="problems/09_linear_advection/03_fdm_solver.ipynb">💻 Notebook</a> · <a href="problems/09_linear_advection/04_whiteboard_guide.pdf">🧮 Whiteboard</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <a href="problems/09_linear_advection"><img src="problems/09_linear_advection/docs/figures/lap.png" alt="Problem 9 result: after one lap upwind returns the pulses smeared but positive, Lax-Wendroff keeps the Gaussian but leaves wiggles behind the square pulse"></a>
+      <p><b>9 · The result</b><br><sub>Upwind smears the pulse to 58 % of its height (numerical diffusion); Lax–Wendroff keeps 96 % but wiggles (dispersion). FTCS always blows up.</sub></p>
     </td>
   </tr>
 </table>
